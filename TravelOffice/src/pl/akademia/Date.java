@@ -13,7 +13,7 @@ public class Date {
     }
 
     public String getInfo() {
-        return  "year=" + year +
+        return  "{year=" + year +
                 ", month=" + month +
                 ", day=" + day +
                 '}';
