@@ -34,7 +34,7 @@ public class TravelOffice {
         customer3.setAddress(address3);
 
         TravelOffice travelOffice = new TravelOffice();
-        
+
         travelOffice.addCustomer(customer1);
         travelOffice.addCustomer(customer2);
         travelOffice.addCustomer(customer3);

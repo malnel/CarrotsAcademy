@@ -25,4 +25,5 @@ public class Customer {
                 trip.getInfo() +
                 '}' + "\n\n";
     }
+
 }
