@@ -42,6 +42,7 @@ public class TravelOffice {
         System.out.println("Number of customers: " + travelOffice.getCustomerCount() + "\n");
         System.out.println(travelOffice.getInfo());
 
+
     }
 
     public void addCustomer(Customer customer) {

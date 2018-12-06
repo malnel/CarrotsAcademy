@@ -14,6 +14,10 @@ public class Test {
         //nie widzi tej metody, bo referencja jest typu vehicle, a nie plane
         //vehiclePlane.land();
 
+        if (vehiclePlane instanceof Plane) {
+            ((Plane) vehiclePlane).land();
+        }
+
         Vehicle vehicle = new Vehicle();
         vehicle.start();
 
@@ -27,6 +31,7 @@ public class Test {
         vehicles.add(car);
 
         System.out.println();
+        //sprawdzam, czy obiekt klasy Vehicle jest tez obiektem klasy Plane, jesli tak, to wywoluje metode land()
         for (Vehicle v : vehicles) {
             if (v instanceof Plane) {
                 ((Plane) v).land();
