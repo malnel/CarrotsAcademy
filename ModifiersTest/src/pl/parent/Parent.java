@@ -1,5 +1,7 @@
 package pl.parent;
 
+import java.util.Objects;
+
 public class Parent {
     private String privateField;
     String defaultField;
@@ -54,8 +56,35 @@ public class Parent {
         System.out.println("To jest konstruktor bezparametrowy rodzica");
     }
 
+
     static {
         System.out.println("To jest statyczny blok kodu rodzica");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Parent parent = (Parent) o;
+        return Objects.equals(privateField, parent.privateField) &&
+                Objects.equals(defaultField, parent.defaultField) &&
+                Objects.equals(publicField, parent.publicField) &&
+                Objects.equals(protectedField, parent.protectedField);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(privateField, defaultField, publicField, protectedField);
+    }
+
+    @Override
+    public String toString() {
+        return "Parent{" +
+                "privateField='" + privateField + '\'' +
+                ", defaultField='" + defaultField + '\'' +
+                ", publicField='" + publicField + '\'' +
+                ", protectedField='" + protectedField + '\'' +
+                '}';
     }
 }
 
