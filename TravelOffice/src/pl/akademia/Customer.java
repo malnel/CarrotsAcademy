@@ -2,9 +2,9 @@ package pl.akademia;
 
 public class Customer {
 
-    String name;
-    Address address;
-    Trip trip;
+    private String name;
+    private Address address;
+    private Trip trip;
 
     public Customer(String name) {
         this.name = name;
@@ -18,12 +18,32 @@ public class Customer {
         this.trip = trip;
     }
 
-    public String getInfo() {
+    @Override
+    public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' + "\n" +
-                address.getInfo() + "\n" +
-                trip.getInfo() +
+                address.toString() + "\n" +
+                trip.toString() +
                 '}' + "\n\n";
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
 }
