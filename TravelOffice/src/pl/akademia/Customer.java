@@ -23,6 +23,6 @@ public class Customer {
                 "name='" + name + '\'' + "\n" +
                 address.getInfo() + "\n" +
                 trip.getInfo() +
-                '}';
+                '}' + "\n\n";
     }
 }
