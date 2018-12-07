@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Vehicle[] vehicles = {new Ship(), new Train()};
+        Vehicle[] vehicles = {new SmallBoat(), new Train()};
         for (Vehicle v : vehicles) {
             v.start();
         }
@@ -25,7 +25,10 @@ abstract class Vehicle {
 
 }
 
-class Ship extends Vehicle {
+abstract class Ship extends Vehicle {
+}
+
+class SmallBoat extends Ship {
     @Override
     void horn() {
         System.out.println("######### dźwięk syreny okrętowej");
