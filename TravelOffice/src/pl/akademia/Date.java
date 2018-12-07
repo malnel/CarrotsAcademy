@@ -1,5 +1,7 @@
 package pl.akademia;
 
+import java.util.StringTokenizer;
+
 public class Date {
 
     private int year;
@@ -14,10 +16,18 @@ public class Date {
 
     @Override
     public String toString() {
-        return  "{year=" + year +
-                ", month=" + month +
-                ", day=" + day +
-                '}';
+        return String.format("%4d/%02d/%02d", year, month, day);
+    }
+
+    public Date saveDate (String s) {
+        Date date = new Date();
+        StringTokenizer st = new StringTokenizer(s, "/.-");
+        while (st.hasMoreElements()) {
+            date.setYear(Integer.parseInt(st.nextToken()));
+            date.setMonth(Integer.parseInt(st.nextToken()));
+            date.setDay(Integer.parseInt(st.nextToken()));
+        }
+        return date;
     }
 
     public int getYear() {
@@ -42,5 +52,8 @@ public class Date {
 
     public void setDay(int day) {
         this.day = day;
+    }
+
+    public Date() {
     }
 }

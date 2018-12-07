@@ -6,14 +6,15 @@ public class Test {
 
         Address address1 = new Address("Narutowicza", "93-193", "Lodz");
         Customer customer1 = new Customer("Joanna Nowak");
-        AbroadTrip trip1 = new AbroadTrip(
-                new Date(2018, 3, 12),
-                new Date(2018, 3, 28),
-                "Ibiza",
-                2900);
+        Date d1 = new Date();
+        d1 = d1.saveDate("2018/3/12");
+        Date d2 = new Date();
+        d2 = d2.saveDate("2018.3.28");
+        AbroadTrip trip1 = new AbroadTrip(d1, d2, "Ibiza", 2900);
         trip1.setInsurance(600);
         customer1.assignTrip(trip1);
         customer1.setAddress(address1);
+
 
         Address address2 = new Address("Sklodowskiej", "93-193", "Lodz");
         Customer customer2 = new Customer("Karolina Kot");
@@ -41,6 +42,7 @@ public class Test {
         travelOffice.addCustomer(customer1);
         travelOffice.addCustomer(customer2);
         travelOffice.addCustomer(customer3);
+
 
         System.out.println("Number of customers: " + travelOffice.getCustomerCount() + "\n");
         System.out.println(travelOffice.toString());

@@ -9,8 +9,6 @@ public class Date {
     public Date saveDate (String s) {
         Date date = new Date();
         StringTokenizer st = new StringTokenizer(s, "/.-");
-//        while (st.hasMoreElements())
-//            System.out.println(st.nextToken());
         while (st.hasMoreElements()) {
             date.year += st.nextToken();
             date.month += st.nextToken();
