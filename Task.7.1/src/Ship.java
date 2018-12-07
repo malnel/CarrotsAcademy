@@ -1,13 +1,9 @@
 public class Ship extends Vehicle implements Sailing {
 
     @Override
-    public void dock() {
-        System.out.println("Przybyto do portu");
-    }
-
-    @Override
     public void stop() {
         super.stop();
+        this.dock();
     }
 
     @Override

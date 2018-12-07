@@ -1,4 +1,6 @@
 public interface Sailing {
 
-    void dock();
+    default void dock() {
+        System.out.println("Przybyto do portu");
+    };
 }

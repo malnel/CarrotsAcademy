@@ -11,8 +11,8 @@ public class Test {
             System.out.println(v.calculateFuelConsumption());
             v.go();
             v.stop();
-            if (v instanceof Plane) {
-                ((Plane) v).callAirControl();
+            if (v instanceof Flying) {
+                ((Flying) v).callAirControl();
             }
         }
     }
