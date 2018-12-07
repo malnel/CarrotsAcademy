@@ -16,7 +16,7 @@ public class Test {
         customer1.setAddress(address1);
 
 
-        Address address2 = new Address("Sklodowskiej", "93-193", "Lodz");
+        Address address2 = new Address("Sklodowskiej", "00-123", "Warszawa");
         Customer customer2 = new Customer("Karolina Kot");
         DomesticTrip trip2 = new DomesticTrip(
                 new Date(2018, 7, 13),
@@ -27,7 +27,7 @@ public class Test {
         customer2.assignTrip(trip2);
         customer2.setAddress(address2);
 
-        Address address3 = new Address("Kilinskiego", "93-193", "Lodz");
+        Address address3 = new Address("Kilinskiego", "59-300", "Lubin");
         Customer customer3 = new Customer("Adam Lis");
         Trip trip3 = new Trip(
                 new Date(2017, 8, 1),
