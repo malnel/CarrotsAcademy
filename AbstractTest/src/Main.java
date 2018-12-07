@@ -4,6 +4,19 @@ public class Main {
         for (Vehicle v : vehicles) {
             v.start();
         }
+
+        int i = 1;
+        System.out.println(i);
+        int x = i++;
+        System.out.println("x = " + x);
+        System.out.println("i = " + i);
+
+        int j = 1;
+        int y = ++j;
+        System.out.println("y = " + y);
+        System.out.println("j = " + j);
+
+
     }
 }
 
