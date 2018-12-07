@@ -6,6 +6,9 @@ public abstract class Vehicle {
         this.name = name;
     }
 
+    public Vehicle() {
+    }
+
     abstract double getFuelNeeds();
 
     abstract double getDistance();
@@ -14,8 +17,12 @@ public abstract class Vehicle {
         return getDistance() / getFuelNeeds();
     }
 
-    public String go() {
-        return Object.class.getName();
+    public void go() {
+        System.out.println("Uruchomiono: " + this.getClass().getName());
+    }
+
+    public void stop() {
+        System.out.println("Zatrzymano: " + this.getClass().getName());
     }
 
     @Override
