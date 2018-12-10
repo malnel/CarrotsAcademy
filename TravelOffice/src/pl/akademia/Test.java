@@ -3,6 +3,7 @@ package pl.akademia;
 public class Test {
 
     public static void main(String[] args) {
+        TravelOffice travelOffice = new TravelOffice();
 
         Address address1 = new Address("Narutowicza", "93-193", "Lodz");
         Customer customer1 = new Customer("Joanna Nowak");
@@ -29,23 +30,28 @@ public class Test {
 
         Address address3 = new Address("Kilinskiego", "59-300", "Lubin");
         Customer customer3 = new Customer("Adam Lis");
-        Trip trip3 = new Trip(
+        Trip trip3 = new AbroadTrip(
                 new Date(2017, 8, 1),
                 new Date(2017, 8, 14),
                 "Sri Lanka",
                 6200);
+
         customer3.assignTrip(trip3);
         customer3.setAddress(address3);
 
-        TravelOffice travelOffice = new TravelOffice();
 
         travelOffice.addCustomer(customer1);
         travelOffice.addCustomer(customer2);
         travelOffice.addCustomer(customer3);
-
+        travelOffice.addTrip("1234", trip1);
+        travelOffice.addTrip("2345", trip2);
+        travelOffice.addTrip("3456", trip3);
 
         System.out.println("Number of customers: " + travelOffice.getCustomerCount() + "\n");
         System.out.println(travelOffice.toString());
+
+        System.out.println(travelOffice.returnAllCustomers().toString());
+        System.out.println(travelOffice.returnAllTrips().toString());
 
     }
 
