@@ -1,6 +1,7 @@
 package workshop.tests.exercises;
 
 import org.junit.Test;
+import workshop.tests.exercises.workshop.tests.exercises.service.MathService;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +12,7 @@ public class MathTest {
         //fail("Metoda w trakcie implementacji");
 
         //Given
-        Math math = new Math();
+        MathService math = new MathService();
         int a = 5, b = 1;
         int expectedOutput = 5;
         //When
