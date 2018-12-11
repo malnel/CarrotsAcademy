@@ -22,13 +22,13 @@ public class TravelOfficeTest {
     private Customer customerMock;
     @Mock
     private Trip tripMock;
+    @Mock
+    private Address addressMock;
+    @Mock
+    private Date dateMock;
 
     @InjectMocks
     private TravelOffice travelOffice;
-
-    @Before
-    public void setUp() {
-    }
 
     @Test
     public void addCustomer() {
@@ -64,19 +64,24 @@ public class TravelOfficeTest {
 
     @Test
     public void findCustomerByName() throws NoSuchFieldException {
-//        //Given
-//        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("customers")).set(new HashSet<>());
-//        customerMock.setName("name");
-//        travelOffice.returnAllCustomers().add(customerMock);
-//        //When
-//        Customer custOutput = travelOffice.findCustomerByName("name");
-//        //Then
-//        assertEquals(customerMock, custOutput);
+        //Given
         new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("customers")).set(new HashSet<>());
-        Customer customer = new Customer();
-        customer.setName("name");
+        Customer customer = new Customer("name");
+        new FieldSetter(customer, Customer.class.getDeclaredField("address")).set(addressMock);
+        new FieldSetter(customer, Customer.class.getDeclaredField("trip")).set(tripMock);
+        travelOffice.returnAllCustomers().add(customerMock);
+        //When
+        travelOffice.returnAllCustomers().add(customer);
+        //Then
         Customer custOutput = travelOffice.findCustomerByName("name");
         assertEquals(customer, custOutput);
+//        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("customers")).set(new HashSet<>());
+//        Customer customer = new Customer();
+//        customer.setName("name");
+//        customer.setAddress(addressMock);
+//        customer.setTrip(tripMock);
+//        Customer custOutput = travelOffice.findCustomerByName("name");
+//        assertEquals(customer, custOutput);
     }
 
     @Test
@@ -89,4 +94,5 @@ public class TravelOfficeTest {
         //Then
         assertEquals(0, customerSet.size());
     }
+
 }

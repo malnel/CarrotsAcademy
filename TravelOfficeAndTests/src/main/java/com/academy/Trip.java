@@ -1,5 +1,7 @@
 package com.academy;
 
+import java.util.Objects;
+
 public abstract class Trip {
 
     private Date start;
@@ -21,6 +23,22 @@ public abstract class Trip {
                 " start: " + start.toString() +
                 " end: " + end.toString() +
                 " price: " + this.getPrice());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trip trip = (Trip) o;
+        return Double.compare(trip.price, price) == 0 &&
+                Objects.equals(start, trip.start) &&
+                Objects.equals(end, trip.end) &&
+                Objects.equals(destination, trip.destination);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, end, destination, price);
     }
 
     public Date getStart() {
