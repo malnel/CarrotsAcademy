@@ -28,12 +28,10 @@ public class AppTest {
     public void shouldReturnGreetingInLowerCase() {
         when(greetService.hello(null)).thenReturn("HellO wOrlD");
         assertEquals("hello world", app.greetLowerCase(null));
-
     }
 
     @Test
     public void shouldReturnDefaultGreetingInLowerCase() throws NoSuchFieldException {
-
         new FieldSetter(app, App.class.getDeclaredField("greetService")).set(new GreetService());
         assertEquals("hello mock!", app.greetLowerCase(null));
     }
@@ -46,7 +44,6 @@ public class AppTest {
 
     @Test
     public void shouldReturnDefaultGreetingInUpperCase() throws  NoSuchFieldException {
-
         new FieldSetter(app, App.class.getDeclaredField("goodDayService")).set(new GoodDayService());
         assertEquals("HAVE A GOOD DAY!", app.goodDayUpperCase(null));
     }
