@@ -10,8 +10,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -31,35 +29,45 @@ public class TravelOfficeTest {
     private TravelOffice travelOffice;
 
     @Test
-    public void addCustomer() {
+    public void addCustomer() throws NoSuchFieldException {
         //Given
-        Set<Customer> customerSet = new HashSet<>();
+        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("customers")).set(new HashSet<>());
+        int sizeBeforeAdding = travelOffice.customers.size();
         //When
-        customerSet.add(customerMock);
+        travelOffice.customers.add(customerMock);
+        int sizeAfterAdding = travelOffice.customers.size();
         //Then
-        assertEquals(1, customerSet.size());
+        assertEquals(0, sizeBeforeAdding);
+        assertEquals(1, sizeAfterAdding);
     }
 
     @Test
-    public void addTrip() {
+    public void addTrip() throws NoSuchFieldException {
         //Given
-        Map<String, Trip> tripMap = new HashMap<>();
+        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("trips")).set(new HashMap<>());
+        int sizeBeforePuttingTrip = travelOffice.trips.size();
         String name = "tripName";
         //When
-        tripMap.put(name, tripMock);
+        travelOffice.trips.put(name, tripMock);
+        int sizeAfterPuttingTrip = travelOffice.trips.size();
         //Then
-        assertEquals(1, tripMap.size());
+        assertEquals(0, sizeBeforePuttingTrip);
+        assertEquals(1, sizeAfterPuttingTrip);
     }
 
     @Test
-    public void removeTrip() {
+    public void removeTrip() throws NoSuchFieldException {
         //Given
-        Map<String, Trip> tripMap = new HashMap<>();
+        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("trips")).set(new HashMap<>());
         travelOffice.addTrip("trip", tripMock);
+        int sizeBeforeDeleting = travelOffice.trips.size();
         //When
         travelOffice.removeTrip("trip");
+        int sizeAfterDeleting = travelOffice.trips.size();
         //Then
-        assertEquals(null, tripMap.get("trip"));
+        assertEquals(null, travelOffice.trips.get("trip"));
+        assertEquals(1, sizeBeforeDeleting);
+        assertEquals(0, sizeAfterDeleting);
     }
 
     @Test
@@ -69,30 +77,25 @@ public class TravelOfficeTest {
         Customer customer = new Customer("name");
         new FieldSetter(customer, Customer.class.getDeclaredField("address")).set(addressMock);
         new FieldSetter(customer, Customer.class.getDeclaredField("trip")).set(tripMock);
-        travelOffice.returnAllCustomers().add(customerMock);
         //When
         travelOffice.returnAllCustomers().add(customer);
         //Then
         Customer custOutput = travelOffice.findCustomerByName("name");
         assertEquals(customer, custOutput);
-//        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("customers")).set(new HashSet<>());
-//        Customer customer = new Customer();
-//        customer.setName("name");
-//        customer.setAddress(addressMock);
-//        customer.setTrip(tripMock);
-//        Customer custOutput = travelOffice.findCustomerByName("name");
-//        assertEquals(customer, custOutput);
     }
 
     @Test
-    public void removeCustomer() {
+    public void removeCustomer() throws NoSuchFieldException {
         //Given
-        Set<Customer> customerSet = new HashSet<>();
+        new FieldSetter(travelOffice, TravelOffice.class.getDeclaredField("customers")).set(new HashSet<>());
         travelOffice.addCustomer(customerMock);
+        int sizeBeforeDeleting = travelOffice.customers.size();
         //When
         travelOffice.removeCustomer(customerMock);
+        int sizeAfterDeleting = travelOffice.customers.size();
         //Then
-        assertEquals(0, customerSet.size());
+        assertEquals(1, sizeBeforeDeleting);
+        assertEquals(0, sizeAfterDeleting);
     }
 
 }
