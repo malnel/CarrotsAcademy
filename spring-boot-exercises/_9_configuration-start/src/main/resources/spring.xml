@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--TODO 4 zdefiniuj profil xml-->
+    <!--TODO 5 dodaj conponent-scan (pakiet controller)-->
+    <!--TODO 6 dodaj property-placeholder wskazujący na service.properties-->
+    <!--TODO 7 utwórz definicję bean'a, dla GreetServiceSecondImplementation w konstruktorze wstrzyknij msg z pliku service.properites-->
+</beans>
+
