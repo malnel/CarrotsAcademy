@@ -25,7 +25,7 @@ public class GreetControllerTest {
     public void shouldReturnGreetMsg() throws Exception {
         this.mockMvc.perform(get("/greet"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(MSG));
+                .andExpect(content().string(MSG + " from the first implementation"));
     }
 }
 

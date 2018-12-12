@@ -65,7 +65,6 @@ class Kontener {
             Annotation[] annotations = field.getAnnotations();
             for (Annotation annotation : annotations) {
                 // TODO 6 utwórz instancję Collaborator i przypisz pola z adnotacją wstrzyknij
-                Collaborator collaborator = new Collaborator(name);
                 if ("Wstrzyknij".equals(annotation.annotationType().getName())) {
                     field.setAccessible(true); //w ten sposób dobieram się do pola prywatnego
                     field.set(target, new Collaborator(name));
