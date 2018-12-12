@@ -13,6 +13,9 @@ public class DomesticTrip extends Trip {
         this.ownArrivalDiscount = ownArrivalDiscount;
     }
 
+    public DomesticTrip() {
+    }
+
     public void setOwnArrivalDiscount(double ownArrivalDiscount) {
         this.ownArrivalDiscount = ownArrivalDiscount;
     }
