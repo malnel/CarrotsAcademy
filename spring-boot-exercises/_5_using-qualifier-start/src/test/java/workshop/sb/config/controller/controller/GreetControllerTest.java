@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import workshop.sb.config.controller.service.GreetService;
 import workshop.sb.config.controller.service.GreetServiceFirstImplementation;
+import workshop.sb.config.controller.service.GreetServiceSecondImplementation;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -26,7 +27,7 @@ public class GreetControllerTest {
     public void shouldReturnMsgFromPrimaryService() throws Exception {
         this.mockMvc.perform(get("/greet"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(GreetService.MSG+ GreetServiceFirstImplementation.FIRST_IMPL));
+                .andExpect(content().string(GreetService.MSG+ GreetServiceSecondImplementation.SECOND_IMPL));
     }
 }
 
