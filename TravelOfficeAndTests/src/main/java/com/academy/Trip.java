@@ -16,6 +16,9 @@ public abstract class Trip {
         this.price = price;
     }
 
+    public Trip() {
+    }
+
     @Override
     public String toString() {
         return (

@@ -8,6 +8,9 @@ public class AbroadTrip extends Trip {
         super(start, end, destination, price);
     }
 
+    public AbroadTrip() {
+    }
+
     public AbroadTrip(Date start, Date end, String destination, double price, double insurance) {
         super(start, end, destination, price);
         this.insurance = insurance;
@@ -15,6 +18,13 @@ public class AbroadTrip extends Trip {
 
     public void setInsurance(double insurance) {
         this.insurance = insurance;
+    }
+
+    @Override
+    public String toString() {
+        return "AbroadTrip{" +
+                "insurance=" + insurance +
+                '}';
     }
 
     @Override
