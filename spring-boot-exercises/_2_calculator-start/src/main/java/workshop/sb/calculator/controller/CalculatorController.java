@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CalculatorController {
 
+    // Pobranie parametrów przy użyciu @PathVariable, przykładowe wywołanie: localhost:8080/add/1/2
+
     @GetMapping("/add/{n1}/{n2}")
     public String add(@PathVariable double n1, @PathVariable double n2) {
         return String.valueOf(n1 + n2);
@@ -17,6 +19,8 @@ public class CalculatorController {
     public String sub(@PathVariable double n1, @PathVariable double n2) {
         return String.valueOf(n1 - n2);
     }
+
+    // Pobranie parametrów przy użyciu @RequestParam, przykładowe wywołanie: localhost:8080/mul/?n1=1&n2=2
 
     @GetMapping("/mul")
     public String mul(@RequestParam double n1, @RequestParam double n2) {
