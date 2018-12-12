@@ -1,0 +1,4 @@
+hello:
+  controller:
+    hello: Hello from YAML
+    foo: Foo from YAML
