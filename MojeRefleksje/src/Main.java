@@ -1,11 +1,14 @@
 import java.lang.annotation.*;
-import java.lang.reflect.AnnotatedArrayType;
 import java.lang.reflect.Field;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
 
+        UseCollaborator useCollaborator = new UseCollaborator();
+        System.out.println(useCollaborator);
+        Kontener.wstrzyknij(useCollaborator, "wstrzyknięty collaborator");
+        System.out.println(useCollaborator);
     }
 }
 
@@ -40,7 +43,6 @@ class UseCollaborator {
     @Wstrzyknij
     private Collaborator collaboratorWithAnnotation;
 
-    @Wstrzyknij
     private Collaborator collaborator;
 
     @Override
@@ -65,7 +67,8 @@ class Kontener {
                 // TODO 6 utwórz instancję Collaborator i przypisz pola z adnotacją wstrzyknij
                 Collaborator collaborator = new Collaborator(name);
                 if ("Wstrzyknij".equals(annotation.annotationType().getName())) {
-                    field.set(target, new Collaborator("Wstrzyknięty collaborator"));
+                    field.setAccessible(true); //w ten sposób dobieram się do pola prywatnego
+                    field.set(target, new Collaborator(name));
                 }
             }
         }
