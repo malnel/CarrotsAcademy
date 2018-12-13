@@ -1,0 +1,23 @@
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <!-- TODO 4 tag display-name: dowolna nazwa-->
+    <!-- TODO 5 servlet
+
+        name : dispatcher
+        class: org.springframework.web.servlet.DispatcherServlet
+
+        init-param
+            param-name:contextConfigLocation
+            param-value: <wskazuje na spring-servlet.xml>
+        load-on-startup: 1
+
+    -->
+    <!-- TODO 6 servlet mapping
+        servlet-mapping
+            servler-name: dispatcher
+            url-pattern: /
+    -->
+</web-app>
